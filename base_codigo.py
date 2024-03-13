@@ -15,7 +15,7 @@ class Question:
         return user_answer == self.correct_answer
 
 class TriviaGame:
-    def __init__(self):
+    def _init_(self):
         self.questions = [
             Question("What is not a principle of animation?", ["Anticipation", "Staging", "Squash and enlarging", "Arc"], 2),
             Question("which is not a 3D software?", ["Krita", "Zbrush", "Maya", "Blender"], 0),
@@ -23,7 +23,7 @@ class TriviaGame:
             Question("Which geometry is preferred for 3D environments?", ["N-gon", "Quad", "Triangle", "Circle"], 1),
             Question("What is the complementary of purple?", ["Red", "Pink", "Yellow", "Orange"], 2)
         ]
-        self.score = 0
+        self.score = 0
 
    def play(self):
         random.shuffle(self.questions)
