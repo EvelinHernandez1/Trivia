@@ -25,18 +25,16 @@ class TriviaGame:
         ]
         self.score = 0
 
-    def play(self):
+   def play(self):
         random.shuffle(self.questions)
         for question in self.questions:
             question.display_question()
             while True:
-                try:
-                    user_answer = int(input("Enter your answer (1-4): ")) - 1
-                    if user_answer not in range(0, 4):
-                        raise ValueError("Please enter a number between 1 and 4.")
+                user_answer = input("Enter your answer (1-4): ")
+                if user_answer.isdigit() and 1 <= int(user_answer) <= len(question.options):
+                    user_answer = int(user_answer) - 1 # asignasión multiple: En esta sección, la entrada del usuario se convierte a un entero y luego se resta 1, todo en una sola línea, utilizando la asignación múltiple. Esto permite que user_answer se actualice con el valor correcto de la respuesta del usuario en un solo paso.
                     break
-                except ValueError as e:
-                    print(e)
+                print("Please enter a valid option number.")
             if question.check_answer(user_answer):
                 print("Correct!")
                 self.score += 1
