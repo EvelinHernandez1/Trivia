@@ -8,7 +8,7 @@ class Question:
     #creación de comprensión de listas con condiciones y enumerate
     def display_question(self):
         print(self.question)
-        formatted_options = [f"{i + 1}. {option}" for i, option in enumerate(self.options) if i + 1 in range(1, 5)]
+        formatted_options = [f"{i + 1}. {option}" for i, option in enumerate(self.options)]
         print('\n'.join(formatted_options))
 
     def check_answer(self, user_answer):
