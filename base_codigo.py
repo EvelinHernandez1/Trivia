@@ -15,7 +15,7 @@ class Question:
         return user_answer == self.correct_answer
 
 class TriviaGame:
-    def _init_(self):
+    def __init__(self):
         self.questions = [
             Question("What is not a principle of animation?", ["Anticipation", "Staging", "Squash and enlarging", "Arc"], 2),
             Question("which is not a 3D software?", ["Krita", "Zbrush", "Maya", "Blender"], 0),
@@ -23,9 +23,9 @@ class TriviaGame:
             Question("Which geometry is preferred for 3D environments?", ["N-gon", "Quad", "Triangle", "Circle"], 1),
             Question("What is the complementary of purple?", ["Red", "Pink", "Yellow", "Orange"], 2)
         ]
-        self.score = 0
+        self.score = 0
 
-   def play(self):
+    def play(self):
         random.shuffle(self.questions)
         for question in self.questions:
             question.display_question()
@@ -44,16 +44,12 @@ class TriviaGame:
         
         print(f"Your final score is: {self.score}/{len(self.questions)}")
 
-         # Creación de compresión de diccionario
+        # Creación de compresión de diccionario
         correct_answers_dict = {question.question: question.options[question.correct_answer] for question in self.questions}
         print("\nCorrect Answers:")
         # Implementación de zip para iterar sobre las claves y valores del diccionario
         for question, answer in zip(correct_answers_dict.keys(), correct_answers_dict.values()):
             print(f"{question}: {answer}")
-
-# Iniciar el juego de trivia
-game = TriviaGame()
-game.play()
 
 # Iniciar el juego de trivia
 game = TriviaGame()
