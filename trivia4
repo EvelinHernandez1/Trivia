@@ -1,0 +1,10 @@
+ # Creación de compresión de diccionario
+        correct_answers_dict = {question.question: question.options[question.correct_answer] for question in self.questions}
+        print("\nCorrect Answers:")
+        # Implementación de zip para iterar sobre las claves y valores del diccionario
+        for question, answer in zip(correct_answers_dict.keys(), correct_answers_dict.values()):
+            print(f"{question}: {answer}")
+
+# Iniciar el juego de trivia
+game = TriviaGame()
+game.play()
