@@ -24,6 +24,16 @@ class TriviaGame:
             Question("What is the complementary of purple?", ["Red", "Pink", "Yellow", "Orange"], 2)
         ]
         self.score = 0
+        self.motivational_quotes_correct = [
+            "¡YEAH! you surprise me boy/little girl",
+            "¡OMG! you are at your full potential",
+            "You are the greatest of the greats"
+        ]
+        self.motivational_quotes_incorrect = [
+            "You can do it, don't give up",
+            "Take your time and try as many times as necessary",
+            "¡Come on! you can do it"
+        ]
 
     def play(self):
         random.shuffle(self.questions)
@@ -38,8 +48,10 @@ class TriviaGame:
             if question.check_answer(user_answer):
                 print("Correct!")
                 self.score += 1
+                print(random.choice(self.motivational_quotes_correct))
             else:
                 print("Incorrect!")
+                print(random.choice(self.motivational_quotes_incorrect))
             print()
         
         print(f"Your final score is: {self.score}/{len(self.questions)}")
